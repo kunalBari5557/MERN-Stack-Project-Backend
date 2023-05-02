@@ -30,12 +30,14 @@ app.post("/login", async (req, resp) => {
   }
 });
 
+//api for post data
 app.post("/add-product", async (req, resp) => {
   let product = new Product(req.body);
   let result = await product.save();
   resp.send(result);
 });
 
+//api for get data
 app.get("/products", async (req, resp) => {
   let products = await Product.find();
   if (products.length > 0) {
